@@ -1,0 +1,36 @@
+version: '0.1'
+
+services:
+  db:
+    image: postgres:17.2
+    container_name: postgres_db
+    restart: always
+    environment:
+      # This creates the database automatically
+      POSTGRES_DB: asset_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "6001:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # This line calls your script on startup
+      - ./init/01_setup.sql:/docker-entrypoint-initdb.d/01_setup.sql
+      - ./init/02_create_asset_table.sql:/docker-entrypoint-initdb.d/02_create_asset_table.sql
+      - ./init/03_insert_assets.sql:/docker-entrypoint-initdb.d/03_insert_assets.sql
+
+  timescaledb:
+    image: timescale/timescaledb:latest-pg14
+    container_name: trading_db
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_USER=time
+      - POSTGRES_DB=time
+    ports:
+      - "6002:5432"
+    volumes:
+      - ./timescale_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

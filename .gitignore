@@ -1,0 +1,78 @@
+// ...existing code...
+# macOS
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*~               # temporary editor files
+*.swp
+
+# Go
+/bin/
+/pkg/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go modules vendor (if generated)
+vendor/
+
+# Build outputs & coverage
+build/
+dist/
+coverage.out
+
+# Docker / Compose
+.env
+*.env
+docker-compose.override.yml
+docker-compose.*.yml
+
+# Local Docker/Postgres data directories (do NOT commit DB volumes)
+timescale_data/
+postgres_data/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+.Python
+env/
+venv/
+.venv/
+pip-wheel-metadata/
+*.egg-info/
+*.egg
+
+# Jupyter
+.ipynb_checkpoints
+
+# Logs
+*.log
+logs/
+
+# Tests
+.pytest_cache/
+
+# Large data, processed artifacts and models (ingest-data)
+ingest-data/*.csv
+ingest-data/*.pkl
+ingest-data/*.h5
+ingest-data/*.npz
+
+# Misc
+*.bak
+*.tmp
+*.old
+*.orig
+.DS_Store
+Thumbs.db
+// ...existing code...
+{ changed code }

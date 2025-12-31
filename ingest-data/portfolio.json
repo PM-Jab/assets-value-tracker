@@ -1,0 +1,5 @@
+[
+    {"ticker": "AAPL", "buy_price": 220.50, "buy_date": "2024-01-10"},
+    {"ticker": "NVDA", "buy_price": 480.00, "buy_date": "2024-01-12"},
+    {"ticker": "TSLA", "buy_price": 215.00, "buy_date": "2024-01-14"}
+]
